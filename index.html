@@ -759,12 +759,22 @@ function openProduct(p){
   document.getElementById("popupPrice").innerText = p.price;
   document.getElementById("popupDesc").innerText = p.description;
 
-  document.getElementById("popupBrand").innerText = p.brand || "-";
-  document.getElementById("popupType").innerText = p.type || "-";
-  document.getElementById("popupFinish").innerText = p.finish || "-";
-  document.getElementById("popupSeries").innerText = p.series || "-";
-  document.getElementById("popupUSP").innerText = p.usp || "-";
+  const highlightsList = document.getElementById("popupHighlights");
+  highlightsList.innerHTML = "";
+
+  if (p.highlights) {
+    p.highlights.split("|").forEach(item => {
+      const [key, value] = item.split(":");
+      if (key && value) {
+        highlightsList.innerHTML += `
+          <li><strong>${key.trim()}:</strong> ${value.trim()}</li>
+        `;
+      }
+    });
+  }
 }
+
+
 
 function closeProduct(){
   document.getElementById("productPopup").style.display="none";
@@ -872,13 +882,8 @@ document.addEventListener("DOMContentLoaded", function () {
         <p class="popup-price">₹ <span id="popupPrice"></span></p>
 
         <h4>Highlights</h4>
-        <ul class="highlights">
-          <li><strong>Brand:</strong> <span id="popupBrand"></span></li>
-          <li><strong>Type:</strong> <span id="popupType"></span></li>
-          <li><strong>Finish:</strong> <span id="popupFinish"></span></li>
-          <li><strong>Series:</strong> <span id="popupSeries"></span></li>
-          <li><strong>USP:</strong> <span id="popupUSP"></span></li>
-        </ul>
+        <ul class="highlights" id="popupHighlights"></ul>
+
 
         <h4>Description</h4>
         <p id="popupDesc"></p>

@@ -702,6 +702,12 @@ function scrollToContact(){
 
 
 /* 🔴 REPLACE THESE */
+const TILES_SHEET_ID = "1nZFhL2y4hlZAW9e5xz8AQtMPHfOQClRkpzdJydLdJbY";
+const GRANITE_SHEET_ID = "1ND_MFjEvVzl8FSZGzbI67c0UZr-tP8k2-CiHPY-4JWU";
+const SANITARY_SHEET_ID = "1OF_uJe5ao6fCNFuXR8E5bfMIGOl4Z6HbUn5He_FF7ak";
+
+
+
 const PRODUCT_SHEET =
 "https://opensheet.elk.sh/1zZpHB7SqRRmOx81dKK-6igrn6E5Lg8FR2zosqPt9w90/Sheet1";
 const ENQUIRY_URL =
@@ -726,9 +732,32 @@ function openCategory(cat){
 
   home.classList.add("hidden");
   products.classList.remove("hidden");
-  title.innerText = cat.toUpperCase();
 
+  if(cat === "tiles"){
+    title.innerText = "TILE BRANDS";
+    loadTileBrands();
+    return;
+  }
+
+if(cat === "granite"){
+  title.innerText = "GRANITE BRANDS";
+  loadGraniteBrands();
+  return;
+}
+
+if(cat === "sanitary"){
+  title.innerText = "SANITARY PRODUCTS";
+  loadSanitaryTypes();
+  return;
+}
+
+
+
+
+  // fallback for other categories (unchanged)
+  title.innerText = cat.toUpperCase();
   const filtered = allProducts.filter(p=>p.category===cat);
+
   grid.innerHTML = filtered.map(p=>`
     <div class="product-card" onclick='openProduct(${JSON.stringify(p)})'>
       <img src="${p.image}">
@@ -738,6 +767,162 @@ function openCategory(cat){
   `).join("");
 
   window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function loadTileBrands(){
+  fetch(`https://opensheet.elk.sh/${TILES_SHEET_ID}/BRANDS`)
+    .then(res => res.json())
+    .then(brands => {
+
+      if(!brands.length){
+        grid.innerHTML = "<p>No brands found</p>";
+        return;
+      }
+
+      grid.innerHTML = brands.map(b => `
+        <div class="category-card" onclick="openTileBrand('${b.brand}')">
+          <img src="${b.image}">
+          <div class="category-overlay">${b.brand}</div>
+        </div>
+      `).join("");
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+}
+
+
+
+function openTileBrand(brand){
+  title.innerText = brand.toUpperCase();
+
+  fetch(`https://opensheet.elk.sh/${TILES_SHEET_ID}/${encodeURIComponent(brand)}`)
+    .then(res => res.json())
+    .then(products => {
+
+      grid.innerHTML = products.map(p=>`
+        <div class="product-card" onclick='openProduct(${JSON.stringify(p)})'>
+          <img src="${p.image}">
+          <h3>${p.name}</h3>
+          <p class="price">₹${p.price}</p>
+        </div>
+      `).join("");
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+}
+
+
+function loadGraniteBrands(){
+  fetch(`https://opensheet.elk.sh/${GRANITE_SHEET_ID}/BRANDS`)
+    .then(res => res.json())
+    .then(brands => {
+
+      if(!brands.length){
+        grid.innerHTML = "<p>No granite brands found</p>";
+        return;
+      }
+
+      grid.innerHTML = brands.map(b => `
+        <div class="category-card" onclick="openGraniteBrand('${b.brand}')">
+          <img src="${b.image}">
+          <div class="category-overlay">${b.brand}</div>
+        </div>
+      `).join("");
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+}
+
+
+function openGraniteBrand(brand){
+  title.innerText = brand.toUpperCase();
+
+  fetch(`https://opensheet.elk.sh/${GRANITE_SHEET_ID}/${encodeURIComponent(brand)}`)
+    .then(res => res.json())
+    .then(products => {
+
+      grid.innerHTML = products.map(p=>`
+        <div class="product-card" onclick='openProduct(${JSON.stringify(p)})'>
+          <img src="${p.image}">
+          <h3>${p.name}</h3>
+          <p class="price">₹${p.price}</p>
+        </div>
+      `).join("");
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+}
+
+
+
+
+function loadSanitaryTypes(){
+  fetch(`https://opensheet.elk.sh/${SANITARY_SHEET_ID}/TYPES`)
+    .then(res => res.json())
+    .then(types => {
+
+      if(!types.length){
+        grid.innerHTML = "<p>No sanitary types found</p>";
+        return;
+      }
+
+      grid.innerHTML = types.map(t => `
+        <div class="category-card" onclick="openSanitaryType('${t.type}')">
+          <img src="${t.image}">
+          <div class="category-overlay">${t.type}</div>
+        </div>
+      `).join("");
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+}
+
+
+function openSanitaryType(type){
+  title.innerText = type.toUpperCase();
+
+  fetch(`https://opensheet.elk.sh/${SANITARY_SHEET_ID}/${encodeURIComponent(type)}`)
+    .then(res => res.json())
+    .then(rows => {
+
+      // Group by brand
+      const brands = {};
+      rows.forEach(r => {
+        if(!brands[r.brand]){
+          brands[r.brand] = r.brandImage;
+        }
+      });
+
+      grid.innerHTML = Object.keys(brands).map(b => `
+        <div class="category-card" onclick="openSanitaryBrand('${type}','${b}')">
+          <img src="${brands[b]}">
+          <div class="category-overlay">${b}</div>
+        </div>
+      `).join("");
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+}
+
+function openSanitaryBrand(type, brand){
+  title.innerText = brand.toUpperCase();
+
+  fetch(`https://opensheet.elk.sh/${SANITARY_SHEET_ID}/${encodeURIComponent(type)}`)
+    .then(res => res.json())
+    .then(rows => {
+
+      const products = rows.filter(r => r.brand === brand);
+
+      grid.innerHTML = products.map(p => `
+        <div class="product-card" onclick='openProduct(${JSON.stringify(p)})'>
+          <img src="${p.image}">
+          <h3>${p.name}</h3>
+          <p class="price">₹${p.price}</p>
+        </div>
+      `).join("");
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
 }
 
 

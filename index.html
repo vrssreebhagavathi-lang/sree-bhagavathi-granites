@@ -104,13 +104,47 @@ h2{text-align:center;margin-bottom:40px}
 .category-overlay{
   position:absolute;
   inset:0;
-  background:linear-gradient(to top,rgba(0,0,0,.7),transparent);
   display:flex;
   align-items:flex-end;
-  padding:20px;
-  color:white;
-  font-size:1.6rem;
+  justify-content:center;
+  padding-bottom:30px;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.85),
+    rgba(0,0,0,0.25),
+    transparent
+  );
 }
+
+.category-overlay span{
+  background: rgba(0,0,0,0.6);
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-size: 1.9rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: #ffffff;
+  text-transform: uppercase;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+  text-shadow: 0 4px 15px rgba(0,0,0,0.8);
+  position: relative;
+  text-align: center;
+
+}
+
+/* Gold underline accent */
+.category-overlay span::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:-8px;
+  transform:translateX(-50%);
+  width:60%;
+  height:3px;
+  background:#b08d57;
+  border-radius:2px;
+}
+
 
 /* ================= PRODUCTS ================= */
 .product-header{
@@ -150,6 +184,7 @@ h2{text-align:center;margin-bottom:40px}
   text-align: center;
   position: relative;
   box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+  border-bottom: 5px solid #b08d57;
 }
 
 /* GOLD ACCENT LINE */
@@ -168,13 +203,14 @@ h2{text-align:center;margin-bottom:40px}
 /* CATEGORY TITLE */
 .grand-header h2{
   color:#ffffff;
-  font-size:2.6rem;
-  letter-spacing:4px;
-  font-weight:700;
-  margin:0 0 25px;
+  font-size:2.8rem;
+  letter-spacing:5px;
+  font-weight:800;
+  margin:0 0 20px;
   text-transform: uppercase;
-  text-shadow:0 4px 15px rgba(0,0,0,0.6);
+  text-shadow:0 6px 20px rgba(0,0,0,0.7);
 }
+
 
 /* BACK BUTTON */
 .back-btn{
@@ -406,6 +442,18 @@ h2{text-align:center;margin-bottom:40px}
 }
 
 
+@media (max-width: 768px){
+  .section-title{
+    font-size: 1.8rem;
+    letter-spacing: 1.5px;
+  }
+
+  .grand-header h2{
+    font-size: 2rem;
+    letter-spacing: 2px;
+  }
+}
+
 
 /* ================= NAVBAR ================= */
 .navbar{
@@ -413,10 +461,14 @@ h2{text-align:center;margin-bottom:40px}
   top: 0;
   left: 0;
   width: 100%;
-  padding: 18px 6%;
+  padding: 16px 6%;
   z-index: 2000;
-  background: transparent;
+
+  background: rgba(43, 31, 20, 0.92);   /* 🔥 dark brown */
+  backdrop-filter: blur(6px);          /* 🔥 premium glass effect */
+  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
 }
+
 
 
 
@@ -500,6 +552,20 @@ h2{text-align:center;margin-bottom:40px}
   }
 }
 
+
+
+@media (max-width: 768px){
+  .about-home-container{
+    padding: 30px 25px;
+  }
+
+  .about-home-container p{
+    font-size: 1rem;
+  }
+}
+
+
+
 @media (max-width: 768px){
 
   .hero h1{
@@ -527,6 +593,106 @@ h2{text-align:center;margin-bottom:40px}
   .hero{
     height: 75vh;
   }
+}
+
+
+
+@media (max-width: 768px){
+  .size-card{
+    height: 110px;
+  }
+
+  .size-card span{
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+  }
+}
+
+
+
+/* ================= ABOUT US (HOME) ================= */
+.about-section-home{
+  background: #f4efe9;
+  padding: 80px 6%;
+}
+
+.about-home-container{
+  max-width: 900px;
+  margin: auto;
+  background: #ffffff;
+  padding: 50px;
+  border-radius: 12px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  text-align: center;
+}
+
+.about-home-container h2{
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+}
+
+.about-home-container p{
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  color: #3b2a1a;
+}
+
+
+
+
+/* ================= TILE SIZE CARDS ================= */
+.size-card{
+  background: #ffffff;
+  border-radius: 10px;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+}
+
+.size-card span{
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #3b2a1a;
+}
+
+.size-card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 18px 35px rgba(0,0,0,0.25);
+  background: #f7f2eb;
+}
+
+
+
+
+/* ================= PREMIUM SECTION TITLE ================= */
+.section-title{
+  position: relative;
+  display: inline-block;
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #3b2a1a;
+  margin-bottom: 60px;
+  text-transform: uppercase;
+}
+
+/* Gold underline accent */
+.section-title::after{
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -18px;
+  transform: translateX(-50%);
+  width: 110px;
+  height: 4px;
+  background: #b08d57;
+  border-radius: 2px;
 }
 
 
@@ -570,26 +736,61 @@ h2{text-align:center;margin-bottom:40px}
 </div>
 
 
+<!-- ================= ABOUT US (HOME) ================= -->
+<section class="about-section-home">
+  <div class="about-home-container">
+    <h2>About Us</h2>
+
+    <p>
+      <strong>VRS Sree Bhagavathi Granites & Tiles</strong> is a trusted destination
+      for premium tiles, granites, and sanitary solutions, serving homeowners,
+      builders, and architects with quality-driven products and dependable service.
+    </p>
+
+    <p>
+      With 10 years of experience in the stone and surface industry, we specialize in
+      offering a carefully curated range of wall tiles, floor tiles, granite slabs,
+      and sanitary products sourced from reputed manufacturers. Our focus is on
+      combining <strong>durability, aesthetics, and value</strong>.
+    </p>
+
+    <p>
+      Founded by <strong>C. Suresh</strong>, our showroom is built on transparency,
+      quality assurance, and customer satisfaction. We help our customers create
+      <strong>beautiful, lasting spaces</strong>.
+    </p>
+  </div>
+</section>
+
+
 <section id="categories">
 
-<h2>Shop by Category</h2>
+<h2 class="section-title">Shop by Category</h2>
+
 
 <div class="category-grid">
 
   <div class="category-card" onclick="openCategory('tiles')">
-    <img src="Tiles.jpg">
-    <div class="category-overlay">Tiles</div>
+  <img src="Tiles.jpg">
+  <div class="category-overlay">
+    <span>Tiles</span>
   </div>
+</div>
 
-  <div class="category-card" onclick="openCategory('granite')">
-    <img src="marble.jpg">
-    <div class="category-overlay">Granites</div>
+<div class="category-card" onclick="openCategory('granite')">
+  <img src="marble.jpg">
+  <div class="category-overlay">
+    <span>Granites</span>
   </div>
+</div>
 
-  <div class="category-card" onclick="openCategory('sanitary')">
-    <img src="sanitary.jpg">
-    <div class="category-overlay">Sanitary Products</div>
+<div class="category-card" onclick="openCategory('sanitary')">
+  <img src="sanitary.jpg">
+  <div class="category-overlay">
+    <span>Sanitary Products</span>
   </div>
+</div>
+
 
 </div>
 </section>
@@ -782,9 +983,12 @@ function loadTileBrands(){
       grid.innerHTML = brands.map(b => `
         <div class="category-card" onclick="openTileBrand('${b.brand}')">
           <img src="${b.image}">
-          <div class="category-overlay">${b.brand}</div>
+          <div class="category-overlay">
+            <span>${b.brand}</span>
+          </div>
         </div>
       `).join("");
+
 
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
@@ -793,13 +997,46 @@ function loadTileBrands(){
 
 
 function openTileBrand(brand){
-  title.innerText = brand.toUpperCase();
+  title.innerText = brand.toUpperCase() + " – TILE SIZES";
 
   fetch(`https://opensheet.elk.sh/${TILES_SHEET_ID}/${encodeURIComponent(brand)}`)
     .then(res => res.json())
-    .then(products => {
+    .then(rows => {
 
-      grid.innerHTML = products.map(p=>`
+      // Extract unique sizes
+      const sizes = [...new Set(rows.map(r => r.size).filter(Boolean))];
+
+      if(!sizes.length){
+        grid.innerHTML = "<p>No sizes available</p>";
+        return;
+      }
+
+      grid.innerHTML = sizes.map(size => `
+        <div class="size-card" onclick="openTileSize('${brand}','${size}')">
+          <span>${size}</span>
+        </div>
+      `).join("");
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+}
+
+
+function openTileSize(brand, size){
+  title.innerText = brand.toUpperCase() + " – " + size;
+
+  fetch(`https://opensheet.elk.sh/${TILES_SHEET_ID}/${encodeURIComponent(brand)}`)
+    .then(res => res.json())
+    .then(rows => {
+
+      const products = rows.filter(r => r.size === size);
+
+      if(!products.length){
+        grid.innerHTML = "<p>No products found</p>";
+        return;
+      }
+
+      grid.innerHTML = products.map(p => `
         <div class="product-card" onclick='openProduct(${JSON.stringify(p)})'>
           <img src="${p.image}">
           <h3>${p.name}</h3>
@@ -825,9 +1062,12 @@ function loadGraniteBrands(){
       grid.innerHTML = brands.map(b => `
         <div class="category-card" onclick="openGraniteBrand('${b.brand}')">
           <img src="${b.image}">
-          <div class="category-overlay">${b.brand}</div>
+          <div class="category-overlay">
+            <span>${b.brand}</span>
+          </div>
         </div>
       `).join("");
+
 
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
@@ -869,7 +1109,9 @@ function loadSanitaryTypes(){
       grid.innerHTML = types.map(t => `
         <div class="category-card" onclick="openSanitaryType('${t.type}')">
           <img src="${t.image}">
-          <div class="category-overlay">${t.type}</div>
+          <div class="category-overlay">
+            <span>${t.type}</span>
+          </div>
         </div>
       `).join("");
 
@@ -896,9 +1138,13 @@ function openSanitaryType(type){
       grid.innerHTML = Object.keys(brands).map(b => `
         <div class="category-card" onclick="openSanitaryBrand('${type}','${b}')">
           <img src="${brands[b]}">
-          <div class="category-overlay">${b}</div>
+          <div class="category-overlay">
+            <span>${b}</span>
+          </div>
         </div>
       `).join("");
+
+
 
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
@@ -1072,7 +1318,6 @@ document.addEventListener("DOMContentLoaded", function () {
         <h4>Description</h4>
         <p id="popupDesc"></p>
 
-        <button class="btn" onclick="openEnquiry()">Enquiry</button>
       </div>
 
     </div>

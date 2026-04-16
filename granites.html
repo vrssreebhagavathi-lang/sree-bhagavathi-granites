@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<title>Granites</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<section class="filter-section">
+
+<h2>Granite Collection</h2>
+
+<div class="filter-bar">
+
+<select id="brandFilter">
+<option value="">All Brands</option>
+</select>
+
+<button onclick="clearFilters()">Clear Filter</button>
+
+</div>
+
+</section>
+
+<section class="product-section">
+
+<div class="product-grid" id="productGrid"></div>
+
+</section>
+
+<script src="js/granites.js"></script>
+<!-- PRODUCT POPUP -->
+
+<div id="productPopup" class="popup">
+
+<div class="popup-content">
+
+<span class="close-btn" onclick="closePopup()">×</span>
+
+<img id="popupImage">
+
+<h2 id="popupName"></h2>
+
+<p id="popupDesc"></p>
+
+<h3 id="popupPrice"></h3>
+
+<a href="wishlist.html" class="wishlist">
+Wishlist (<span id="wishlistCount">0</span>)
+</a>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

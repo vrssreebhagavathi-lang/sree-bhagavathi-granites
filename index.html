@@ -1,1331 +1,349 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<title>VRS Sree Bhagavathi Granites</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-/* ================= THEME ================= */
-:root{
-  --brown:#3b2a1a;
-  --beige:#e8e3dc;
-  --gold:#b08d57;
-  --white:#ffffff;
-}
+<title>VRS Sree Bhagavathi Granites & Tiles</title>
 
-*{box-sizing:border-box}
+<link rel="stylesheet" href="css/style.css">
 
-body{
-  margin:0;
-  font-family:Arial, sans-serif;
-  background:var(--beige);
-  color:var(--brown);
-}
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
 
-.hidden{display:none}
-
-/* ================= HERO ================= */
-.hero{
-  height:85vh;
-  position:relative;
-  overflow:hidden;
-}
-
-.hero-bg{
-  position:absolute;
-  inset:0;
-  background:url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c") center/cover;
-  filter: brightness(0.55); /* 🔥 only background is dark */
-  z-index:1;
-}
-
-
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,0.25);
-  pointer-events:none;
-  z-index:2;
-}
-
-
-.hero-content{
-  position:relative;
-  z-index:3; /* 🔥 text, logo, button stay bright */
-  height:100%;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  color:white;
-}
-
-.hero h1{font-size:3rem;margin:0}
-.hero p{font-size:1.2rem;margin:10px 0}
-
-/* ================= BUTTON ================= */
-.btn{
-  padding:14px 36px;
-  background: linear-gradient(135deg, #b08d57, #8a6a3e);
-  color:white;
-  border:none;
-  font-size:1rem;
-  letter-spacing:1px;
-  border-radius:6px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-}
-
-
-/* ================= SECTIONS ================= */
-section{padding:60px 6%}
-h2{text-align:center;margin-bottom:40px}
-
-/* ================= CATEGORY ================= */
-.category-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:30px;
-}
-.category-card{
-  height:300px;
-  border-radius:8px;
-  overflow:hidden;
-  cursor:pointer;
-  position:relative;
-}
-.category-card img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-.category-overlay{
-  position:absolute;
-  inset:0;
-  display:flex;
-  align-items:flex-end;
-  justify-content:center;
-  padding-bottom:30px;
-  background: linear-gradient(
-    to top,
-    rgba(0,0,0,0.85),
-    rgba(0,0,0,0.25),
-    transparent
-  );
-}
-
-.category-overlay span{
-  background: rgba(0,0,0,0.6);
-  padding: 12px 28px;
-  border-radius: 8px;
-  font-size: 1.9rem;
-  font-weight: 800;
-  letter-spacing: 3px;
-  color: #ffffff;
-  text-transform: uppercase;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.6);
-  text-shadow: 0 4px 15px rgba(0,0,0,0.8);
-  position: relative;
-  text-align: center;
-
-}
-
-/* Gold underline accent */
-.category-overlay span::after{
-  content:"";
-  position:absolute;
-  left:50%;
-  bottom:-8px;
-  transform:translateX(-50%);
-  width:60%;
-  height:3px;
-  background:#b08d57;
-  border-radius:2px;
-}
-
-
-/* ================= PRODUCTS ================= */
-.product-header{
-  text-align:center;
-  margin-bottom:30px;
-}
-.product-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:25px;
-}
-.product-card{
-  background:white;
-  padding:15px;
-  border-radius:6px;
-}
-.product-card img{
-  width:100%;
-  height:200px;
-  object-fit:cover;
-}
-.price{
-  color:var(--gold);
-  font-weight:bold;
-}
-
-
-/* ================= GRAND PRODUCT HEADER ================= */
-.grand-header{
-  background: linear-gradient(
-    135deg,
-    #3b2a1a,
-    #2b1f14
-  );
-  padding: 50px 6%;
-  margin-bottom: 40px;
-  text-align: center;
-  position: relative;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
-  border-bottom: 5px solid #b08d57;
-}
-
-/* GOLD ACCENT LINE */
-.grand-header::after{
-  content:"";
-  position:absolute;
-  left:50%;
-  bottom:15px;
-  transform:translateX(-50%);
-  width:120px;
-  height:4px;
-  background:#b08d57;
-  border-radius:2px;
-}
-
-/* CATEGORY TITLE */
-.grand-header h2{
-  color:#ffffff;
-  font-size:2.8rem;
-  letter-spacing:5px;
-  font-weight:800;
-  margin:0 0 20px;
-  text-transform: uppercase;
-  text-shadow:0 6px 20px rgba(0,0,0,0.7);
-}
-
-
-/* BACK BUTTON */
-.back-btn{
-  background: transparent;
-  border:2px solid #b08d57;
-  color:#ffffff;
-  box-shadow:none;
-}
-
-.back-btn:hover{
-  background:#b08d57;
-  color:#fff;
-}
-
-
-
-
-/* ================= POPUP ================= */
-.popup{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.6);
-  display:none;
-  justify-content:center;
-  align-items:center;
-  z-index:1000;
-}
-.popup-content{
-  background:white;
-  padding:30px;
-  width:320px;
-}
-.popup-content h3{text-align:center}
-.popup-content input,
-.popup-content textarea{
-  width:100%;
-  padding:10px;
-  margin-bottom:10px;
-}
-.close{
-  text-align:right;
-  cursor:pointer;
-  font-size:14px;
-}
-
-.logo{
-  width:120px;          /* adjust size if needed */
-  margin-bottom:15px;
-}
-
-.hero-brand{
-  background: none;      /* ✅ removes black bar */
-  padding: 0;
-  border-radius: 0;
-  backdrop-filter: none;
-  box-shadow: none;
-}
-
-
-/* LOGO */
-.logo{
-  width:120px;
-  margin-bottom:18px;
-  background:#fff;
-  padding:12px;
-  border-radius:10px;
-}
-
-/* COMPANY NAME */
-.hero h1{
-  font-size:3.2rem;
-  letter-spacing:3px;
-  font-weight:700;
-  margin:10px 0;
-  text-shadow: 0 4px 20px rgba(0,0,0,0.8);
-}
-
-/* TAGLINE */
-.hero p{
-  font-size:1.2rem;
-  letter-spacing:1.5px;
-  opacity:0.9;
-  text-shadow: 0 2px 12px rgba(0,0,0,0.7);
-}
-
-
-/* ================= FOOTER CENTER ALIGN ================= */
-.footer{
-  background:#2b1f14;
-  color:#f5f5f5;
-  padding:70px 6% 25px;
-  margin-top:60px;
-  text-align:center; /* 🔥 center everything */
-}
-
-.footer-center{
-  max-width:700px;
-  margin:auto;
-}
-
-.footer h2{
-  font-size:1.9rem;
-  letter-spacing:2px;
-  margin-bottom:12px;
-}
-
-.footer .founder{
-  font-size:1.1rem;
-  margin-bottom:25px;
-}
-
-.footer .founder span{
-  color:#b08d57;
-}
-
-.footer .contact,
-.footer .address,
-.footer .email,
-.footer .location{
-  margin-bottom:16px;
-  line-height:1.7;
-  font-size:1rem;
-}
-
-/* LINKS */
-.footer a{
-  color:#b08d57;
-  text-decoration:none;
-}
-
-.footer a:hover{
-  text-decoration:underline;
-}
-
-/* FOOTER BOTTOM */
-.footer-bottom{
-  margin-top:40px;
-  padding-top:18px;
-  border-top:1px solid rgba(255,255,255,0.2);
-  font-size:0.9rem;
-  color:#ccc;
-}
-
-
-
-/* ================= PRODUCT POPUP ================= */
-/* ================= PRODUCT POPUP FIX ================= */
-#productPopup{
-  display:none;
-  align-items:center;
-  justify-content:center;
-}
-
-.product-popup{
-  width:90%;
-  max-width:1000px;   /* 🔥 important */
-  max-height:90vh;
-  overflow-y:auto;
-  background:#fff;
-  border-radius:12px;
-  padding:30px;
-}
-
-
-.product-popup-grid{
-  display:grid;
-  grid-template-columns: 45% 55%; /* image | details */
-  gap:30px;
-  align-items:flex-start;
-}
-
-
-.popup-image img{
-  width:100%;
-  max-height:420px;     /* 🔥 prevents tall image */
-  object-fit:cover;
-  border-radius:10px;
-}
-
-.popup-details{
-  overflow-wrap:break-word;
-}
-
-.popup-details h2{
-  margin-top:0;
-  font-size:1.9rem;
-}
-
-.popup-details p{
-  line-height:1.6;
-}
-
-
-.popup-details h2{
-  margin-top:0;
-  font-size:1.8rem;
-}
-
-.popup-price{
-  font-size:1.5rem;
-  color:#b08d57;
-  font-weight:bold;
-  margin:10px 0 20px;
-}
-
-.highlights{
-  list-style:none;
-  padding:0;
-  margin:10px 0 20px;
-}
-
-.highlights li{
-  margin-bottom:8px;
-  font-size:0.95rem;
-}
-
-@media (max-width: 768px){
-  .product-popup{
-    padding:20px;
-  }
-
-  .product-popup-grid{
-    grid-template-columns:1fr;
-  }
-
-  .popup-image img{
-    max-height:300px;
-  }
-}
-
-
-@media (max-width: 768px){
-  .section-title{
-    font-size: 1.8rem;
-    letter-spacing: 1.5px;
-  }
-
-  .grand-header h2{
-    font-size: 2rem;
-    letter-spacing: 2px;
-  }
-}
-
-
-/* ================= NAVBAR ================= */
-.navbar{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 16px 6%;
-  z-index: 2000;
-
-  background: rgba(43, 31, 20, 0.92);   /* 🔥 dark brown */
-  backdrop-filter: blur(6px);          /* 🔥 premium glass effect */
-  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
-}
-
-
-
-
-.nav-left{
-  display:flex;
-  gap:30px;
-  justify-content:flex-end;   /* ✅ move items to right */
-}
-
-
-.nav-left a{
-  color:#ffffff;
-  text-decoration:none;
-  font-size:1rem;
-  letter-spacing:1px;
-  font-weight:500;
-}
-
-.nav-left a:hover{
-  color:#b08d57;
-}
-
-/* ================= ABOUT ================= */
-.about-section{
-  padding:120px 6% 80px; /* top padding for navbar */
-  background:#f4efe9;
-}
-
-.about-container{
-  max-width:900px;
-  margin:auto;
-  background:white;
-  padding:50px;
-  border-radius:12px;
-  box-shadow:0 15px 40px rgba(0,0,0,0.15);
-}
-
-.about-container h2{
-  text-align:center;
-  margin-bottom:30px;
-  letter-spacing:2px;
-}
-
-.about-container p{
-  font-size:1.05rem;
-  line-height:1.8;
-  margin-bottom:20px;
-  color:#3b2a1a;
-}
-
-@media (max-width:768px){
-  .grand-header{
-    padding:40px 20px;
-  }
-
-  .grand-header h2{
-    font-size:2rem;
-    letter-spacing:2px;
-  }
-}
-#categories,
-#contact{
-  scroll-margin-top: 90px;
-}
-
-
-/* ================= MOBILE NAV FIX ================= */
-@media (max-width: 768px){
-
-  .navbar{
-    padding: 12px 5%;
-  }
-
-  .nav-left{
-    gap: 18px;
-  }
-
-  .nav-left a{
-    font-size: 0.9rem;
-    letter-spacing: 0.5px;
-  }
-}
-
-
-
-@media (max-width: 768px){
-  .about-home-container{
-    padding: 30px 25px;
-  }
-
-  .about-home-container p{
-    font-size: 1rem;
-  }
-}
-
-
-
-@media (max-width: 768px){
-
-  .hero h1{
-    font-size: 2rem;        /* 🔥 reduced from 3.2rem */
-    letter-spacing: 1.5px;
-    line-height: 1.2;
-  }
-
-  .hero p{
-    font-size: 1rem;
-    letter-spacing: 0.8px;
-  }
-
-  .logo{
-    width: 80px;           /* 🔥 smaller logo */
-    padding: 8px;
-  }
-
-  .btn{
-    padding: 12px 26px;
-    font-size: 0.95rem;
-  }
-}
-@media (max-width: 768px){
-  .hero{
-    height: 75vh;
-  }
-}
-
-
-
-@media (max-width: 768px){
-  .size-card{
-    height: 110px;
-  }
-
-  .size-card span{
-    font-size: 1.4rem;
-    letter-spacing: 1px;
-  }
-}
-
-
-
-/* ================= ABOUT US (HOME) ================= */
-.about-section-home{
-  background: #f4efe9;
-  padding: 80px 6%;
-}
-
-.about-home-container{
-  max-width: 900px;
-  margin: auto;
-  background: #ffffff;
-  padding: 50px;
-  border-radius: 12px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-  text-align: justify;
-}
-
-.about-home-container h2{
-  margin-bottom: 30px;
-  letter-spacing: 2px;
-}
-
-.about-home-container p{
-  font-size: 1.05rem;
-  line-height: 1.8;
-  margin-bottom: 20px;
-  color: #3b2a1a;
-}
-
-
-
-
-/* ================= TILE SIZE CARDS ================= */
-.size-card{
-  background: #ffffff;
-  border-radius: 10px;
-  height: 140px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-  transition: all 0.3s ease;
-}
-
-.size-card span{
-  font-size: 1.8rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  color: #3b2a1a;
-}
-
-.size-card:hover{
-  transform: translateY(-6px);
-  box-shadow: 0 18px 35px rgba(0,0,0,0.25);
-  background: #f7f2eb;
-}
-
-
-
-
-/* ================= PREMIUM SECTION TITLE ================= */
-.section-title{
-  position: relative;
-  display: inline-block;
-  font-size: 2.4rem;
-  font-weight: 700;
-  letter-spacing: 3px;
-  color: #3b2a1a;
-  margin-bottom: 60px;
-  text-transform: uppercase;
-}
-
-/* Gold underline accent */
-.section-title::after{
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -18px;
-  transform: translateX(-50%);
-  width: 110px;
-  height: 4px;
-  background: #b08d57;
-  border-radius: 2px;
-}
-
-
-
-
-
-</style>
 </head>
+
 
 <body>
 
 
-<!-- ================= NAVBAR ================= -->
-<nav class="navbar">
-  <div class="nav-left">
-    <a href="#" onclick="showHome()">Home</a>
-    <a href="#" onclick="scrollToProducts()">Products</a>
-    <a href="#" onclick="showAbout()">About Us</a>
-    <a href="#" onclick="scrollToContact()">Contact</a>
-  </div>
+<!-- ======= HEADER ======= -->
+
+
+<header class="navbar">
+
+<div class="logo-area">
+<img src="images/logo.png" class="logo">
+
+<div class="brand">
+<h2>VRS Sree Bhagavathi</h2>
+<span>Granites & Tiles</span>
+</div>
+</div>
+
+<div class="hamburger" onclick="toggleMenu()">
+<span></span>
+<span></span>
+<span></span>
+</div>
+
+<nav class="nav-menu" id="navMenu">
+
+<a href="index.html">Home</a>
+
+<a href="about.html">About Us</a>
+
+<a href="products.html">Products</a>
+
+
+<a href="contact.html">Contact</a>
+
+<<a href="wishlist.html" class="wishlist">Wishlist</a>
+
 </nav>
 
+</header>
 
+<section class="hero">
 
-<!-- ================= HOME ================= -->
-<div id="home">
+<div class="hero-overlay"></div>
 
-<div class="hero">
-  <div class="hero-bg"></div>
+<div class="hero-content">
 
-  <div class="hero-content">
-    <div class="hero-brand">
-      <img src="logo.png" class="logo">
+<h1>Luxury Surfaces</h1>
 
-      <h1>VRS Sree Bhagavathi Granites & Tiles</h1>
-      <p>Premium Tiles • Granites • Sanitary Solutions</p>
-    </div>
+<p>Premium Tiles • Granites • Sanitary Solutions</p>
 
-    <button class="btn" id="enquiryBtn">Enquire Now</button>
-  </div>
+<a href="#" class="hero-btn">Explore Collection</a>
+
 </div>
 
+<div class="scroll-indicator"></div>
 
-<!-- ================= ABOUT US (HOME) ================= -->
-<section class="about-section-home">
-  <div class="about-home-container">
-    <h2>About Us</h2>
-
-    <p>
-      <strong>VRS Sree Bhagavathi Granites & Tiles</strong> is a trusted destination
-      for premium tiles, granites, and sanitary solutions, serving homeowners,
-      builders, and architects with quality-driven products and dependable service.
-    </p>
-
-    <p>
-      With 10 years of experience in the stone and surface industry, we specialize in
-      offering a carefully curated range of wall tiles, floor tiles, granite slabs,
-      and sanitary products sourced from reputed manufacturers. Our focus is on
-      combining <strong>durability, aesthetics, and value</strong>.
-    </p>
-
-    <p>
-      Founded by <strong>C. Suresh</strong>, our showroom is built on transparency,
-      quality assurance, and customer satisfaction. We help our customers create
-      <strong>beautiful, lasting spaces</strong>.
-    </p>
-  </div>
 </section>
 
+<section class="about-section">
 
-<section id="categories">
+<div class="about-container">
 
-<h2 class="section-title">Shop by Category</h2>
-
-
-<div class="category-grid">
-
-  <div class="category-card" onclick="openCategory('tiles')">
-  <img src="Tiles.jpg">
-  <div class="category-overlay">
-    <span>Tiles</span>
-  </div>
+<div class="about-image">
+<img src="images/about.jpg" alt="Granite showroom">
 </div>
 
-<div class="category-card" onclick="openCategory('granite')">
-  <img src="marble.jpg">
-  <div class="category-overlay">
-    <span>Granites</span>
-  </div>
+<div class="about-content">
+
+<h2>About Us</h2>
+
+<p>
+<strong>VRS Sree Bhagavathi Granites & Tiles</strong> is a trusted destination
+for premium tiles, granites, and sanitary solutions. With years of experience
+in the stone and surface industry, we help homeowners, architects, and builders
+create elegant and durable spaces.
+</p>
+
+<p>
+Our collection includes carefully selected wall tiles, floor tiles, granite
+slabs, and sanitary products from leading manufacturers, combining
+<strong>quality, aesthetics, and reliability</strong>.
+</p>
+
+<a href="#" class="about-btn">Learn More</a>
+
 </div>
 
-<div class="category-card" onclick="openCategory('sanitary')">
-  <img src="sanitary.jpg">
-  <div class="category-overlay">
-    <span>Sanitary Products</span>
-  </div>
 </div>
 
-
-</div>
 </section>
 
+<section class="stats-section">
+
+<div class="stats-container">
+
+<div class="stat-box">
+<div class="stat-number">15+</div>
+<p>Years Experience</p>
 </div>
 
-
-
-<!-- ================= ABOUT US ================= -->
-<section id="about" class="hidden about-section">
-  <div class="about-container">
-    <h2>About Us</h2>
-
-    <p>
-      <strong>VRS Sree Bhagavathi Granites & Tiles</strong> is a trusted name in
-      premium tiles, granites, and sanitary solutions. With years of experience
-      in the stone and surface industry, we specialize in delivering
-      high-quality materials that combine durability, aesthetics, and value.
-    </p>
-
-    <p>
-      Founded by <strong>C. Suresh</strong>, our showroom serves residential,
-      commercial, and architectural projects with a wide range of wall tiles,
-      floor tiles, granite slabs, and sanitary products sourced from leading
-      manufacturers.
-    </p>
-
-    <p>
-      Our commitment is to provide reliable products, transparent pricing,
-      and personalized customer service to help you build beautiful spaces
-      that last.
-    </p>
-  </div>
-</section>
-
-
-
-
-
-<!-- ================= PRODUCTS ================= -->
-<section id="products" class="hidden">
-  <div class="product-header grand-header">
-  <h2 id="productTitle"></h2>
-  <button class="btn back-btn" onclick="goHome()">Back to Home</button>
-  </div>
-
-  <div class="product-grid" id="productGrid"></div>
-</section>
-
-<!-- ================= ENQUIRY POPUP ================= -->
-<div class="popup" id="popup">
-  <div class="popup-content">
-    <div class="close" id="closePopup">✖</div>
-    <h3>Customer Enquiry</h3>
-
-    <form id="enquiryForm">
-      <input type="text" name="name" placeholder="Name" required>
-      <input type="tel" name="mobile" placeholder="Mobile Number" required>
-      <textarea name="message" placeholder="Requirement"></textarea>
-      <button type="submit" class="btn">Submit</button>
-    </form>
-
-  </div>
+<div class="stat-box">
+<div class="stat-number">5000+</div>
+<p>Happy Customers</p>
 </div>
 
+<div class="stat-box">
+<div class="stat-number">200+</div>
+<p>Premium Designs</p>
+</div>
 
-<!-- ================= JS ================= -->
+<div class="stat-box">
+<div class="stat-number">50+</div>
+<p>Trusted Brands</p>
+</div>
+
+</div>
+
+</section>
+<section class="quote-section">
+
+<div class="quote-overlay"></div>
+
+<div class="quote-content">
+
+<h2>Transforming Spaces with Excellence</h2>
+
+<p>Experience the finest in luxury surfaces and exceptional service.</p>
+
+</div>
+
+</section>
+
+<section class="category-section">
+
+<div class="category-title">
+<h2>Shop by Category</h2>
+<p>Explore our premium collection of surfaces and solutions</p>
+</div>
+
+<div class="category-container">
+
+<div class="category-card">
+<img src="images/tiles.jpg">
+<div class="category-overlay">
+<h3>Tiles</h3>
+</div>
+</div>
+
+<div class="category-card">
+<img src="images/granite.jpg">
+<div class="category-overlay">
+<h3>Granites</h3>
+</div>
+</div>
+
+<div class="category-card">
+<img src="images/sanitary.jpg">
+<div class="category-overlay">
+<h3>Sanitary</h3>
+</div>
+</div>
+
+</div>
+
+</section>
+<section class="reviews">
+
+<h2 class="review-title">What Our Customers Say</h2>
+
+<div class="review-container">
+
+<div class="review-track" id="reviewTrack">
+
+<div class="review-card">
+<h3>Arun Kumar</h3>
+<div class="stars">★★★★★</div>
+<p>
+Excellent collection of granites and tiles. The quality and finishing are
+really premium. Highly recommended for anyone building a new home.
+</p>
+</div>
+
+<div class="review-card">
+<h3>Meena Lakshmi</h3>
+<div class="stars">★★★★★</div>
+<p>
+Beautiful designs and great customer service. The showroom has an amazing
+collection and the staff helped us choose perfectly.
+</p>
+</div>
+
+<div class="review-card">
+<h3>Ramesh Babu</h3>
+<div class="stars">★★★★★</div>
+<p>
+Very satisfied with the granite quality. Delivery was on time and the
+pricing was reasonable compared to other shops.
+</p>
+</div>
+
+<div class="review-card">
+<h3>Priya Nair</h3>
+<div class="stars">★★★★★</div>
+<p>
+The tiles collection is simply stunning. Our house looks luxurious after
+installing their tiles.
+</p>
+</div>
+
+<div class="review-card">
+<h3>Sathish Kumar</h3>
+<div class="stars">★★★★★</div>
+<p>
+Professional team and great service. They helped us select the perfect
+sanitary fittings for our bathroom.
+</p>
+</div>
+
+<div class="review-card">
+<h3>Anita George</h3>
+<div class="stars">★★★★★</div>
+<p>
+Best place to buy granite and tiles. Quality products and friendly staff.
+</p>
+</div>
+
+<div class="review-card">
+<h3>Rahul Menon</h3>
+<div class="stars">★★★★★</div>
+<p>
+Amazing showroom with many premium designs. Installation guidance was
+very helpful.
+</p>
+</div>
+
+<div class="review-card">
+<h3>Divya Raj</h3>
+<div class="stars">★★★★★</div>
+<p>
+Very happy with the tiles we purchased. Excellent finishing and elegant
+designs.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="contact-section">
+
+<div class="contact-container">
+
+<h2>Visit Our Showroom</h2>
+
+<div class="contact-grid">
+
+<div class="contact-box">
+<h3>📍 Address</h3>
+<p>
+VRS Sree Bhagavathi Granites & Tiles<br>
+Karavilai, Thiruvananthapuram Road<br>
+Villukury, Tamil Nadu<br>
+India
+</p>
+</div>
+
+<div class="contact-box">
+<h3>📞 Phone</h3>
+<p>
++91 94431 30540<br>
++91 97883 25172
+</p>
+</div>
+
+<div class="contact-box">
+<h3>✉ Email</h3>
+<p>
+ suresh.bhagavathi123@gmail.com
+</p>
+</div>
+
+<div class="contact-box">
+<h3>🕒 Working Hours</h3>
+<p>
+Mon – Sat : 9:00 AM – 8:00 PM<br>
+Sunday : 10:00 AM – 6:00 PM
+</p>
+</div>
+
+</div>
+
+<a href="https://maps.app.goo.gl/dRAw6sZkHxJL6yAx5"
+class="map-btn"
+target="_blank">
+View Location on Map
+</a>
+
+</div>
+
+</section>
+
 <script>
 
-function showHome(){
-  home.classList.remove("hidden");
-  products.classList.add("hidden");
-  document.getElementById("about").classList.add("hidden");
-  window.scrollTo({ top: 0, behavior: "smooth" });
-}
-
-function showAbout(){
-  home.classList.add("hidden");
-  products.classList.add("hidden");
-  document.getElementById("about").classList.remove("hidden");
-  window.scrollTo({ top: 0, behavior: "smooth" });
+function toggleMenu(){
+document.getElementById("navMenu").classList.toggle("active");
 }
 
 
-function scrollToProducts(){
-  // Ensure home is visible
-  home.classList.remove("hidden");
-  products.classList.add("hidden");
-  document.getElementById("about").classList.add("hidden");
-
-  setTimeout(() => {
-    document.getElementById("categories")
-      .scrollIntoView({ behavior: "smooth" });
-  }, 100);
-}
-
-function scrollToContact(){
-  // Ensure home is visible
-  home.classList.remove("hidden");
-  products.classList.add("hidden");
-  document.getElementById("about").classList.add("hidden");
-
-  setTimeout(() => {
-    document.getElementById("contact")
-      .scrollIntoView({ behavior: "smooth" });
-  }, 100);
-}
-
-
-
-
-/* 🔴 REPLACE THESE */
-const TILES_SHEET_ID = "1nZFhL2y4hlZAW9e5xz8AQtMPHfOQClRkpzdJydLdJbY";
-const GRANITE_SHEET_ID = "1ND_MFjEvVzl8FSZGzbI67c0UZr-tP8k2-CiHPY-4JWU";
-const SANITARY_SHEET_ID = "1OF_uJe5ao6fCNFuXR8E5bfMIGOl4Z6HbUn5He_FF7ak";
-
-
-
-const PRODUCT_SHEET =
-"https://opensheet.elk.sh/1zZpHB7SqRRmOx81dKK-6igrn6E5Lg8FR2zosqPt9w90/Sheet1";
-const ENQUIRY_URL =
-"https://script.google.com/macros/s/AKfycbwAE8XjXJZvtX3meusPWOtJJjnIcSikPgWkBDtZa1NlUiGQfuUmzYvi7TT73FFNgG-vlQ/exec ";
-
-const home = document.getElementById("home");
-const products = document.getElementById("products");
-const grid = document.getElementById("productGrid");
-const title = document.getElementById("productTitle");
-const popup = document.getElementById("popup");
-
-let allProducts = [];
-
-/* LOAD PRODUCTS */
-fetch(PRODUCT_SHEET)
-.then(res=>res.json())
-.then(data=>allProducts=data);
-
-/* CATEGORY NAV */
-function openCategory(cat){
-  document.getElementById("about").classList.add("hidden");
-
-  home.classList.add("hidden");
-  products.classList.remove("hidden");
-
-  if(cat === "tiles"){
-    title.innerText = "TILE BRANDS";
-    loadTileBrands();
-    return;
-  }
-
-if(cat === "granite"){
-  title.innerText = "GRANITE BRANDS";
-  loadGraniteBrands();
-  return;
-}
-
-if(cat === "sanitary"){
-  title.innerText = "SANITARY PRODUCTS";
-  loadSanitaryTypes();
-  return;
-}
-
-
-
-
-  // fallback for other categories (unchanged)
-  title.innerText = cat.toUpperCase();
-  const filtered = allProducts.filter(p=>p.category===cat);
-
-  grid.innerHTML = filtered.map(p=>`
-    <div class="product-card" onclick='openProduct(${JSON.stringify(p)})'>
-      <img src="${p.image}">
-      <h3>${p.name}</h3>
-      <p class="price">₹${p.price}</p>
-    </div>
-  `).join("");
-
-  window.scrollTo({ top: 0, behavior: "smooth" });
-}
-
-function loadTileBrands(){
-  fetch(`https://opensheet.elk.sh/${TILES_SHEET_ID}/BRANDS`)
-    .then(res => res.json())
-    .then(brands => {
-
-      if(!brands.length){
-        grid.innerHTML = "<p>No brands found</p>";
-        return;
-      }
-
-      grid.innerHTML = brands.map(b => `
-        <div class="category-card" onclick="openTileBrand('${b.brand}')">
-          <img src="${b.image}">
-          <div class="category-overlay">
-            <span>${b.brand}</span>
-          </div>
-        </div>
-      `).join("");
-
-
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-}
-
-
-
-function openTileBrand(brand){
-  title.innerText = brand.toUpperCase() + " – TILE SIZES";
-
-  fetch(`https://opensheet.elk.sh/${TILES_SHEET_ID}/${encodeURIComponent(brand)}`)
-    .then(res => res.json())
-    .then(rows => {
-
-      // Extract unique sizes
-      const sizes = [...new Set(rows.map(r => r.size).filter(Boolean))];
-
-      if(!sizes.length){
-        grid.innerHTML = "<p>No sizes available</p>";
-        return;
-      }
-
-      grid.innerHTML = sizes.map(size => `
-        <div class="size-card" onclick="openTileSize('${brand}','${size}')">
-          <span>${size}</span>
-        </div>
-      `).join("");
-
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-}
-
-
-function openTileSize(brand, size){
-  title.innerText = brand.toUpperCase() + " – " + size;
-
-  fetch(`https://opensheet.elk.sh/${TILES_SHEET_ID}/${encodeURIComponent(brand)}`)
-    .then(res => res.json())
-    .then(rows => {
-
-      const products = rows.filter(r => r.size === size);
-
-      if(!products.length){
-        grid.innerHTML = "<p>No products found</p>";
-        return;
-      }
-
-      grid.innerHTML = products.map(p => `
-        <div class="product-card" onclick='openProduct(${JSON.stringify(p)})'>
-          <img src="${p.image}">
-          <h3>${p.name}</h3>
-          <p class="price">₹${p.price}</p>
-        </div>
-      `).join("");
-
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-}
-
-
-function loadGraniteBrands(){
-  fetch(`https://opensheet.elk.sh/${GRANITE_SHEET_ID}/BRANDS`)
-    .then(res => res.json())
-    .then(brands => {
-
-      if(!brands.length){
-        grid.innerHTML = "<p>No granite brands found</p>";
-        return;
-      }
-
-      grid.innerHTML = brands.map(b => `
-        <div class="category-card" onclick="openGraniteBrand('${b.brand}')">
-          <img src="${b.image}">
-          <div class="category-overlay">
-            <span>${b.brand}</span>
-          </div>
-        </div>
-      `).join("");
-
-
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-}
-
-
-function openGraniteBrand(brand){
-  title.innerText = brand.toUpperCase();
-
-  fetch(`https://opensheet.elk.sh/${GRANITE_SHEET_ID}/${encodeURIComponent(brand)}`)
-    .then(res => res.json())
-    .then(products => {
-
-      grid.innerHTML = products.map(p=>`
-        <div class="product-card" onclick='openProduct(${JSON.stringify(p)})'>
-          <img src="${p.image}">
-          <h3>${p.name}</h3>
-          <p class="price">₹${p.price}</p>
-        </div>
-      `).join("");
-
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-}
-
-
-
-
-function loadSanitaryTypes(){
-  fetch(`https://opensheet.elk.sh/${SANITARY_SHEET_ID}/TYPES`)
-    .then(res => res.json())
-    .then(types => {
-
-      if(!types.length){
-        grid.innerHTML = "<p>No sanitary types found</p>";
-        return;
-      }
-
-      grid.innerHTML = types.map(t => `
-        <div class="category-card" onclick="openSanitaryType('${t.type}')">
-          <img src="${t.image}">
-          <div class="category-overlay">
-            <span>${t.type}</span>
-          </div>
-        </div>
-      `).join("");
-
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-}
-
-
-function openSanitaryType(type){
-  title.innerText = type.toUpperCase();
-
-  fetch(`https://opensheet.elk.sh/${SANITARY_SHEET_ID}/${encodeURIComponent(type)}`)
-    .then(res => res.json())
-    .then(rows => {
-
-      // Group by brand
-      const brands = {};
-      rows.forEach(r => {
-        if(!brands[r.brand]){
-          brands[r.brand] = r.brandImage;
-        }
-      });
-
-      grid.innerHTML = Object.keys(brands).map(b => `
-        <div class="category-card" onclick="openSanitaryBrand('${type}','${b}')">
-          <img src="${brands[b]}">
-          <div class="category-overlay">
-            <span>${b}</span>
-          </div>
-        </div>
-      `).join("");
-
-
-
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-}
-
-function openSanitaryBrand(type, brand){
-  title.innerText = brand.toUpperCase();
-
-  fetch(`https://opensheet.elk.sh/${SANITARY_SHEET_ID}/${encodeURIComponent(type)}`)
-    .then(res => res.json())
-    .then(rows => {
-
-      const products = rows.filter(r => r.brand === brand);
-
-      grid.innerHTML = products.map(p => `
-        <div class="product-card" onclick='openProduct(${JSON.stringify(p)})'>
-          <img src="${p.image}">
-          <h3>${p.name}</h3>
-          <p class="price">₹${p.price}</p>
-        </div>
-      `).join("");
-
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-}
-
-
-
-
-function goHome(){
-  products.classList.add("hidden");
-  home.classList.remove("hidden");
-  window.scrollTo({ top: 0, behavior: "smooth" });
-}
-
-
-function openProduct(p){
-  document.getElementById("productPopup").style.display="flex";
-
-  document.getElementById("popupImage").src = p.image;
-  document.getElementById("popupName").innerText = p.name;
-  document.getElementById("popupPrice").innerText = p.price;
-  document.getElementById("popupDesc").innerText = p.description;
-
-  const highlightsList = document.getElementById("popupHighlights");
-  highlightsList.innerHTML = "";
-
-  if (p.highlights) {
-    p.highlights.split("|").forEach(item => {
-      const [key, value] = item.split(":");
-      if (key && value) {
-        highlightsList.innerHTML += `
-          <li><strong>${key.trim()}:</strong> ${value.trim()}</li>
-        `;
-      }
-    });
-  }
-}
-
-
-
-function closeProduct(){
-  document.getElementById("productPopup").style.display="none";
-}
-
-
-
-/* ENQUIRY */
 </script>
-
 <script>
-document.addEventListener("DOMContentLoaded", function () {
 
-  const enquiryBtn = document.getElementById("enquiryBtn");
-  const popup = document.getElementById("popup");
-  const closePopup = document.getElementById("closePopup");
-  const enquiryForm = document.getElementById("enquiryForm");
+let index = 0;
+const track = document.getElementById("reviewTrack");
+const cards = document.querySelectorAll(".review-card");
 
-  // Open popup
-  enquiryBtn.addEventListener("click", function () {
-    popup.style.display = "flex";
-  });
+function slideReviews(){
 
-  // Close popup
-  closePopup.addEventListener("click", function () {
-    popup.style.display = "none";
-  });
+index++;
 
-  // Submit enquiry
-  enquiryForm.addEventListener("submit", function (e) {
-    e.preventDefault();
+if(index > cards.length - 2){
+index = 0;
+}
 
-    fetch(ENQUIRY_URL, {
-      method: "POST",
-      body: new FormData(enquiryForm)
-    })
-    .then(() => {
-      alert("Enquiry submitted successfully");
-      enquiryForm.reset();
-      popup.style.display = "none";
-    })
-    .catch(() => {
-      alert("Error submitting enquiry");
-    });
-  });
+track.style.transform = "translateX(-" + (index * 50) + "%)";
 
-});
+}
+
+setInterval(slideReviews, 4000);
+
 </script>
-
-<footer class="footer" id="contact">
-  <div class="footer-center">
-  <h2>VRS Sree Bhagavathi Granites & Tiles</h2>
-
-  <p class="founder">C. Suresh <span>– Founder</span></p>
-
-  <p class="contact">
-    📞 <a href="tel:9443130540">94431 30540</a><br>
-    📞 <a href="tel:9788325172">97883 25172</a>
-  </p>
-
-  <p class="address">
-    📍 Karavilai,<br>
-    Thiruvananthapuram Road,<br>
-    Villukury, Kanyakumari
-  </p>
-
-  <p class="location">
-    📌 <a href="https://maps.app.goo.gl/KTDNCgVxMQarK6gC7?_st=iw" 
-       target="_blank">
-       View Location on Google Maps
-    </a>
-  </p>
-
-  <p class="email">
-    ✉️ <a href="mailto:suresh.bhagavathi123@gmail.com">
-      suresh.bhagavathi123@gmail.com
-    </a>
-  </p>
-</div>
-
-
-  <div class="footer-bottom">
-    © 2026 VRS Sree Bhagavathi Granites & Tiles. All Rights Reserved.
-  </div>
-</footer>
-
-
-<!-- ================= PRODUCT DETAIL POPUP ================= -->
-<div class="popup" id="productPopup">
-  <div class="popup-content product-popup">
-
-    <span class="close" onclick="closeProduct()">✖</span>
-
-    <div class="product-popup-grid">
-
-      <!-- LEFT IMAGE -->
-      <div class="popup-image">
-        <img id="popupImage">
-      </div>
-
-      <!-- RIGHT DETAILS -->
-      <div class="popup-details">
-        <h2 id="popupName"></h2>
-
-        <p class="popup-price">₹ <span id="popupPrice"></span></p>
-
-        <h4>Highlights</h4>
-        <ul class="highlights" id="popupHighlights"></ul>
-
-
-        <h4>Description</h4>
-        <p id="popupDesc"></p>
-
-      </div>
-
-    </div>
-  </div>
-</div>
-
-
-
-
-</body>
-</html>

@@ -124,7 +124,7 @@ position:relative;
 width:100%;
 height:100vh;
 
-background-image:url("../images/hero.jpg");
+background-image:url("hero.jpg");
 background-size:cover;
 background-position:center;
 background-repeat:no-repeat;
@@ -452,7 +452,7 @@ position:relative;
 
 height:500px;
 
-background-image:url("../images/quote.jpg");
+background-image:url("quote.jpg");
 
 background-size:cover;
 background-position:center;
@@ -751,7 +751,7 @@ color:white;
 
 height:400px;
 
-background-image:url("../images/about-banner.jpg");
+background-image:url("about-banner.jpg");
 
 background-size:cover;
 background-position:center;
@@ -1245,7 +1245,7 @@ grid-template-columns:1fr;
 position:relative;
 height:60vh;
 
-background-image:url("../images/product-banner.jpg");
+background-image:url("product-banner.jpg");
 background-size:cover;
 background-position:center;
 

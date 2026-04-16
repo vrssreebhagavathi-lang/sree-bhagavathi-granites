@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Products | VRS Sree Bhagavathi</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- NAVBAR (same as your home page) -->
+
+<header class="navbar">
+
+<div class="logo-area">
+<img src="images/logo.png" class="logo">
+
+<div class="brand">
+<h2>VRS Sree Bhagavathi</h2>
+<span>Granites & Tiles</span>
+</div>
+</div>
+
+<nav class="nav-menu">
+<a href="index.html">Home</a>
+<a href="about.html">About Us</a>
+<a href="products.html">Products</a>
+<a href="contact.html">Contact</a>
+<a href="wishlist.html" class="wishlist">
+Wishlist (<span id="wishlistCount">0</span>)
+</a>
+</nav>
+
+</header>
+
+<!-- ===== PRODUCT HERO ===== -->
+
+<section class="product-hero">
+
+<div class="hero-overlay"></div>
+
+<div class="product-hero-content">
+
+<h1>Our Premium Collection</h1>
+
+<p>Explore luxury tiles, granites and sanitary products</p>
+
+</div>
+
+</section>
+
+<section class="category-section">
+
+<div class="category-title">
+<h2>Shop by Category</h2>
+<p>Explore our premium collection of surfaces and solutions</p>
+</div>
+
+
+<!-- ===== CATEGORY SECTION ===== -->
+
+<section class="product-categories">
+
+<div class="category-card" onclick="goToPage('tiles.html')">
+<img src="images/tile-category.jpg">
+<div class="category-overlay">
+<h2>Tiles</h2>
+</div>
+</div>
+
+<div class="category-card" onclick="goToPage('granites.html')">
+<img src="images/granite-category.jpg">
+<div class="category-overlay">
+<h2>Granites</h2>
+</div>
+</div>
+
+<div class="category-card" onclick="goToPage('sanitary.html')">
+<img src="images/sanitary-category.jpg">
+<div class="category-overlay">
+<h2>Sanitary</h2>
+</div>
+</div>
+
+</section>
+</section>
+
+</body>
+</html>
+<script>
+function goToPage(page){
+window.location.href = page;
+}
+</script>

@@ -1,101 +1,56 @@
-let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+const API_URL = "https://script.google.com/macros/s/AKfycbxjgQ-bTjCOeqwexKX10NqBCWQ3CE5eiW9tmpCwIZlvQw2vdzhQOIc4whYPSPw6pc2XcA/exec";
 
-displayWishlist();
+const userId = localStorage.getItem("userId");
 
-function displayWishlist(){
-
-let grid = document.getElementById("wishlistGrid");
-grid.innerHTML = "";
-
-if(wishlist.length === 0){
-grid.innerHTML = "<p>No items in wishlist</p>";
-return;
+if (!userId) {
+  alert("Please login first");
+  window.location.href = "login.html";
 }
 
-wishlist.forEach((item, index) => {
+function loadWishlist() {
+  fetch(`${API_URL}?type=wishlist&userId=${userId}`)
+  .then(res => res.json())
+  .then(data => {
 
-grid.innerHTML += `
+    const grid = document.getElementById("wishlistGrid");
+    grid.innerHTML = "";
 
-<div class="product-card">
-<img src="${item.image}">
-<h3>${item.name}</h3>
-<p>₹ ${item.price}</p>
+    if (data.length === 0) {
+      grid.innerHTML = "<p>No items in wishlist</p>";
+      return;
+    }
 
-<button onclick="removeItem(${index})" class="view-btn">
-Remove
-</button>
+    data.forEach(item => {
+      grid.innerHTML += `
+        <div class="product-card">
+          <img src="${item.image}">
+          <h3>${item.name}</h3>
+          <p>₹ ${item.price}</p>
 
-</div>
-`;
+          <button onclick="removeItem('${item.name}')">
+            ❌ Remove
+          </button>
+        </div>
+      `;
+    });
 
-});
-
+  });
 }
 
-function removeItem(index){
+function removeItem(productName) {
 
-wishlist.splice(index,1);
-
-localStorage.setItem("wishlist", JSON.stringify(wishlist));
-
-displayWishlist();
-updateWishlistCount();
-
+  fetch(API_URL, {
+    method: "POST",
+    body: JSON.stringify({
+      action: "removeWishlist",
+      userId: userId,
+      productName: productName
+    })
+  })
+  .then(() => {
+    alert("Removed from wishlist ❌");
+    loadWishlist(); // refresh UI
+  });
 }
 
-function updateWishlistCount(){
-
-let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
-
-let countElement = document.getElementById("wishlistCount");
-
-if(countElement){
-countElement.innerText = wishlist.length;
-}
-
-}
-
-updateWishlistCount();
-
-
-function getWishlist(){
-return JSON.parse(localStorage.getItem("wishlist")) || [];
-}
-
-function isWishlisted(product){
-
-let wishlist = getWishlist();
-
-return wishlist.some(item => item.name === product.name);
-
-}
-
-
-function toggleWishlist(event, product){
-
-event.stopPropagation(); // prevent popup opening
-
-let wishlist = getWishlist();
-
-let index = wishlist.findIndex(item => item.name === product.name);
-
-if(index > -1){
-
-// remove
-wishlist.splice(index,1);
-
-}else{
-
-// add
-wishlist.push(product);
-
-}
-
-localStorage.setItem("wishlist", JSON.stringify(wishlist));
-
-updateWishlistCount();
-
-// refresh UI
-displayProducts(allProducts);
-
-}
+loadWishlist();

@@ -136,6 +136,7 @@ justify-content:center;
 text-align:center;
 }
 
+
 .hero-overlay{
 position:absolute;
 top:0;
@@ -1162,19 +1163,15 @@ gap:30px;
 /* PRODUCT CARD */
 
 .product-card{
-
 background:white;
-
 border-radius:10px;
-
 overflow:hidden;
-
 text-align:center;
-
 box-shadow:0 10px 25px rgba(0,0,0,0.05);
-
 transition:0.4s;
 
+/* 🔥 ADD THIS */
+position: relative;
 }
 
 .product-card img{
@@ -1227,17 +1224,10 @@ transform:translateY(-8px);
 
 }
 
-/* MOBILE */
 
-@media(max-width:768px){
 
-.product-grid{
 
-grid-template-columns:1fr;
 
-}
-
-}
 
 /* ===== PRODUCT HERO ===== */
 
@@ -1622,4 +1612,153 @@ width:100%;
 font-size:32px;
 }
 
+}
+
+.product-card button {
+  margin-top: 10px;
+  padding: 8px 16px;
+  border: none;
+  background: #c6a87d;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.product-card button:hover {
+  background: #a8895f;
+}
+.auth-btn {
+  padding: 6px 16px;
+  border: 1px solid #c6a87d;
+  border-radius: 20px;
+  background: white;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.auth-btn:hover {
+  background: #c6a87d;
+  color: white;
+}
+@media (max-width:600px){
+
+.product-card img{
+height:200px;
+}
+
+.product-card h3{
+font-size:16px;
+padding:15px;
+}
+
+}
+@media (max-width:600px){
+
+.heart-icon{
+width:30px;
+height:30px;
+font-size:16px;
+top:8px;
+right:8px;
+}
+
+}
+
+@media (max-width:600px){
+
+.popup-content{
+width:90%;
+padding:20px;
+}
+
+.popup-content img{
+height:180px;
+}
+
+.popup-content h2{
+font-size:18px;
+}
+
+}
+
+@media (max-width:600px){
+
+.filter-section{
+padding:20px;
+}
+
+.product-section{
+padding:0 5% 60px;
+}
+
+}
+
+@media (max-width:600px){
+
+.brand h2{
+font-size:14px;
+}
+
+.brand span{
+font-size:10px;
+}
+
+.logo{
+width:45px;
+height:45px;
+}
+
+}
+
+/* ===== RESPONSIVE GRID FIX ===== */
+
+/* TABLET */
+@media (max-width:1024px){
+.product-grid{
+grid-template-columns:repeat(2,1fr);
+gap:20px;
+}
+}
+
+/* MOBILE */
+@media (max-width:600px){
+.product-grid{
+grid-template-columns:1fr;
+gap:20px;
+padding:0 10px;
+}
+}
+
+.product-grid{
+max-width:1200px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:30px;
+}
+
+/* STICKY FILTER */
+.filter-section{
+position:sticky;
+top:80px; /* below navbar */
+z-index:999;
+background:#f6f3ed;
+padding-bottom:10px;
+}   
+
+.product-card{
+transition: all 0.3s ease;
+}
+
+.product-card:active{
+transform: scale(0.97);
+}
+
+.heart-icon{
+transition: all 0.2s ease;
+}
+
+.heart-icon:active{
+transform: scale(1.3);
 }

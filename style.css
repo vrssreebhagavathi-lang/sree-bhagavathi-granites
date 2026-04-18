@@ -2006,3 +2006,11 @@ padding:60px 20px !important;  /* ✅ FIX SIDE SPACING */
 }
 
 }
+
+@media(max-width:768px){
+
+.review-track{
+transform: none !important;  /* 🔥 STOP SLIDER SHIFT */
+}
+
+}

@@ -325,13 +325,18 @@
 
 
     </script>
-    <script>
+
+<script>
 
 let index = 0;
 
+const track = document.getElementById("reviewTrack");
+const cards = document.querySelectorAll(".review-card");
+
 function slideReviews(){
 
-const cardsToShow = window.innerWidth <= 768 ? 1 : 2;
+const isMobile = window.innerWidth <= 768;
+const cardsToShow = isMobile ? 1 : 2;
 
 index++;
 
@@ -339,19 +344,15 @@ if(index > cards.length - cardsToShow){
     index = 0;
 }
 
-const movePercent = window.innerWidth <= 768 ? 100 : 50;
+const movePercent = isMobile ? 100 : 50;
 
 track.style.transform = `translateX(-${index * movePercent}%)`;
 }
 
 setInterval(slideReviews, 4000);
 
-    // update on resize
-    window.addEventListener("resize", () => {
-    isMobile = window.innerWidth <= 768;
-    });
+</script>
 
-    </script>
     <script src="authUI.js"></script>
 
 

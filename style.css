@@ -1938,7 +1938,15 @@ grid-template-columns:1fr;   /* 🔥 ONE COLUMN */
 @media(max-width:768px){
 
 .review-track{
-display:block;   /* 🔥 remove horizontal layout */
+display:flex;              /* ✅ KEEP SLIDER */
+overflow:hidden;
+}
+
+.review-card{
+min-width:100%;
+flex-shrink:0;
+}
+
 }
 
 .review-card{
@@ -1947,7 +1955,7 @@ width:100%;
 margin-bottom:20px;
 }
 
-}
+
 
 .review-card{
 margin-left:auto;
@@ -2022,4 +2030,26 @@ transform: none !important;  /* 🔥 STOP SLIDER SHIFT */
 
 .review-track{
 transition: transform 0.5s ease-in-out;
+}
+
+.review-container{
+overflow:hidden;
+}
+
+.review-track{
+display:flex;
+transition:transform 0.5s ease-in-out;
+}
+
+.review-card{
+min-width:50%;
+flex-shrink:0;
+}
+
+@media(max-width:768px){
+
+.review-card{
+min-width:100%;   /* 🔥 ONE CARD PER SLIDE */
+}
+
 }

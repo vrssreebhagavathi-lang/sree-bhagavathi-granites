@@ -327,24 +327,29 @@
     </script>
     <script>
 
-let index = 0;
+    let index = 0;
+    const track = document.getElementById("reviewTrack");
+    const cards = document.querySelectorAll(".review-card");
 
-const track = document.querySelector(".review-track");
-const cards = document.querySelectorAll(".review-card");
+    let isMobile = window.innerWidth <= 768;
 
-function slideReviews() {
-  index++;
+    function slideReviews(){
 
-  if (index >= cards.length) {
-    index = 0;
-  }
+    const cardsToShow = isMobile ? 1 : 2;
 
-  const cardWidth = cards[0].offsetWidth + 20; // 20 = gap
+    index++;
 
-  track.style.transform = `translateX(-${index * cardWidth}px)`;
-}
+    if(index > cards.length - cardsToShow){
+        index = 0;
+    }
 
-setInterval(slideReviews, 3000);
+    const movePercent = isMobile ? 100 : 50;
+
+    track.style.transform = "translateX(-" + (index * movePercent) + "%)";
+    }
+
+    // run slider always (mobile + desktop)
+    setInterval(slideReviews, 4000);
 
     // update on resize
     window.addEventListener("resize", () => {

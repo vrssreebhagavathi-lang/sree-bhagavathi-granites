@@ -910,29 +910,25 @@ margin-bottom:10px;
 @media(max-width:768px){
 
 .story-container{
-
 flex-direction:column;
-
 }
+
 .story-text{
 max-width:100%;
 text-align:center;
 }
 
-}
-
 .mission-container{
-
 grid-template-columns:1fr;
-
 }
 
 .why-container{
-
 grid-template-columns:1fr;
-
 }
 
+}
+.story-container{
+align-items:stretch;
 }
 
 

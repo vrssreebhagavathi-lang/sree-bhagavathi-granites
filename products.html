@@ -30,7 +30,7 @@
 </div>
 </div>
   <!-- 🔥 HAMBURGER -->
-  <div class="hamburger">
+  <div class="hamburger" onclick="toggleMenu()">
     <span></span>
     <span></span>
     <span></span>
@@ -110,4 +110,9 @@ window.location.href = page;
 }
 </script>
 <script src="authUI.js"></script>
-<script src="menu.js"></script>
+
+<script>
+function toggleMenu(){
+  document.querySelector(".nav-menu").classList.toggle("active");
+}
+</script>

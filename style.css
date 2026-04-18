@@ -1949,3 +1949,60 @@ margin-left:auto;
 margin-right:auto;
 max-width:350px;
 }
+
+/* 🔥 GLOBAL MOBILE FIX */
+@media(max-width:768px){
+
+body, html{
+overflow-x:hidden;   /* 🚨 prevent side scroll */
+}
+
+/* FIX REVIEW SECTION */
+.review-container{
+width:100%;
+padding:0 15px;
+}
+
+.review-track{
+display:block !important;
+width:100%;
+}
+
+.review-card{
+width:100%;
+max-width:350px;
+margin:15px auto;   /* ✅ CENTER */
+}
+
+/* FIX CONTACT / SHOWROOM */
+.contact-container{
+width:100%;
+padding:0 15px;
+}
+
+.contact-grid{
+grid-template-columns:1fr !important;
+justify-items:center;   /* ✅ CENTER ITEMS */
+}
+
+.contact-box{
+width:100%;
+max-width:320px;
+}
+
+.contact-section h2{
+text-align:center;
+}
+
+}
+
+@media(max-width:768px){
+
+.about-story,
+.mission-section,
+.why-section,
+.contact-section{
+padding:60px 20px !important;  /* ✅ FIX SIDE SPACING */
+}
+
+}

@@ -346,7 +346,9 @@ track.style.transform = "translateX(-" + (index * 50) + "%)";
 
 }
 
-setInterval(slideReviews, 4000);
+if (window.innerWidth > 768) {
+  setInterval(slideReviews, 4000);
+}
 
 </script>
 <script src="authUI.js"></script>

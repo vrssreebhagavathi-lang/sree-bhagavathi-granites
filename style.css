@@ -668,8 +668,13 @@ line-height:1.6;
 
 @media(max-width:768px){
 
+.review-track{
+display:flex;
+}
+
 .review-card{
 min-width:100%;
+flex-shrink:0;
 }
 
 }
@@ -2013,4 +2018,8 @@ padding:60px 20px !important;  /* ✅ FIX SIDE SPACING */
 transform: none !important;  /* 🔥 STOP SLIDER SHIFT */
 }
 
+}
+
+.review-track{
+transition: transform 0.5s ease-in-out;
 }

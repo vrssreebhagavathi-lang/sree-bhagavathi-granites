@@ -1904,25 +1904,6 @@ font-size:16px;
 
 }
 
-/* 🔥 TESTIMONIAL MOBILE FIX */
-
-@media(max-width:768px){
-
-/* Target the container holding cards */
-.why-container,
-.testimonial-container,
-
-
-/* Target individual cards */
-.why-card,
-.testimonial-card,
-.review-card{
-width:90%;
-max-width:350px;
-margin:10px auto;
-}
-
-}
 @media(max-width:768px){
 
 .why-container{

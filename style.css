@@ -2013,12 +2013,17 @@ transition:transform 0.5s ease-in-out;
 .review-card{
 min-width:50%;
 flex-shrink:0;
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 10px 30px rgba(0,0,0,0.05);
+text-align:left;
 }
 
 @media(max-width:768px){
 
 .review-card{
-min-width:100%;   /* 🔥 ONE CARD PER SLIDE */
+min-width:100%;
 }
 
 }

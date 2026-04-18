@@ -790,14 +790,19 @@ background:#ffffff;
 }
 
 .story-container{
-
 max-width:1200px;
 margin:auto;
 
 display:flex;
 gap:60px;
 align-items:center;
+justify-content:space-between;
+}
 
+/* 🔥 IMPORTANT FIX */
+.story-image,
+.story-text{
+flex:1;
 }
 
 .story-image img{
@@ -907,6 +912,12 @@ margin-bottom:10px;
 .story-container{
 
 flex-direction:column;
+
+}
+.story-text{
+max-width:100%;
+text-align:center;
+}
 
 }
 
@@ -1771,4 +1782,21 @@ color:inherit;
 h1, h2, h3, h4, h5, h6{
 color:#2f2f2f;
 text-decoration:none;
+}
+
+.story-text{
+max-width:550px;
+}
+
+.story-image img{
+width:100%;
+height:400px;
+object-fit:cover;
+border-radius:8px;
+}
+
+.story-text p{
+font-size:16px;
+line-height:1.8;
+letter-spacing:0.3px;
 }

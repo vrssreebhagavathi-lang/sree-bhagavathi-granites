@@ -3,65 +3,21 @@
 <html>
 
 <head>
-<title>Tiles</title>
+<title>Wishlist</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<section class="filter-section">
+<a href="index.html" class="close-btn">✕</a>
 
-<h2>Tiles Collection</h2>
-
-<div class="filter-bar">
-
-<select id="brandFilter">
-<option value="">All Brands</option>
-</select>
-
-<select id="sizeFilter">
-<option value="">All Sizes</option>
-</select>
-
-<select id="appFilter">
-<option value="">All Applications</option>
-</select>
-
-<button onclick="clearFilters()">Clear Filter</button>
-
-</div>
-
-</section>
+<h2 style="text-align:center; margin-top:100px;">My Wishlist ❤️</h2>
 
 <section class="product-section">
-
-<div class="product-grid" id="productGrid"></div>
-
+<div class="product-grid" id="wishlistGrid"></div>
 </section>
 
-<script src="tiles.js"></script>
-
-<!-- PRODUCT POPUP -->
-
-<div id="productPopup" class="popup">
-
-<div class="popup-content">
-
-<span class="close-btn" onclick="closePopup()">×</span>
-
-<img id="popupImage">
-
-<h2 id="popupName"></h2>
-
-<p id="popupDesc"></p>
-
-<h3 id="popupPrice"></h3>
-
-<button class="wishlist-btn">Add to Wishlist</button>
-
-</div>
-
-</div>
+<script src="wishlist.js"></script>
 
 </body>
 

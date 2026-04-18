@@ -629,26 +629,6 @@ font-size:38px;
 margin-bottom:50px;
 }
 
-.review-container{
-overflow:hidden;
-max-width:1200px;
-margin:auto;
-}
-
-.review-track{
-display:flex;
-gap:30px;
-transition:transform 0.6s ease;
-}
-
-.review-card{
-min-width:50%;
-background:white;
-padding:30px;
-border-radius:10px;
-box-shadow:0 10px 30px rgba(0,0,0,0.05);
-text-align:left;
-}
 
 .review-card h3{
 font-size:18px;
@@ -666,18 +646,7 @@ color:#555;
 line-height:1.6;
 }
 
-@media(max-width:768px){
 
-.review-track{
-display:flex;
-}
-
-.review-card{
-min-width:100%;
-flex-shrink:0;
-}
-
-}
 
 /* ===== CONTACT SECTION ===== */
 
@@ -1905,42 +1874,6 @@ font-size:16px;
 }
 
 
-@media(max-width:768px){
-
-.review-track{
-display:flex;              /* ✅ KEEP SLIDER */
-overflow:hidden;
-}
-
-.review-card{
-min-width:100%;
-flex-shrink:0;
-}
-
-}
-
-
-/* 🔥 GLOBAL MOBILE FIX */
-@media(max-width:768px){
-
-body, html{
-overflow-x:hidden;   /* 🚨 prevent side scroll */
-}
-
-/* FIX REVIEW SECTION */
-.review-container{
-width:100%;
-padding:0 15px;
-}
-
-
-
-.review-card{
-width:100%;
-max-width:350px;
-margin:15px auto;   /* ✅ CENTER */
-}
-
 /* FIX CONTACT / SHOWROOM */
 .contact-container{
 width:100%;
@@ -1974,9 +1907,13 @@ padding:60px 20px !important;  /* ✅ FIX SIDE SPACING */
 
 }
 
+/* ===== REVIEW SLIDER FINAL ===== */
 
 .review-container{
 overflow:hidden;
+width:100%;
+max-width:1200px;
+margin:auto;
 }
 
 .review-track{
@@ -1985,19 +1922,17 @@ transition:transform 0.5s ease-in-out;
 }
 
 .review-card{
-min-width:50%;
+min-width:100%;
 flex-shrink:0;
+padding:25px;
 background:white;
-padding:30px;
 border-radius:10px;
 box-shadow:0 10px 30px rgba(0,0,0,0.05);
-text-align:left;
 }
 
-@media(max-width:768px){
-
+/* DESKTOP */
+@media(min-width:769px){
 .review-card{
-min-width:100%;
+min-width:50%;
 }
-
 }

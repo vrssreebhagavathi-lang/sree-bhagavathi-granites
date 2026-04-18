@@ -321,10 +321,7 @@ View Location on Map
 </section>
 
 <script>
-
-function toggleMenu(){
-document.getElementById("navMenu").classList.toggle("active");
-}
+    
 
 
 </script>
@@ -333,14 +330,6 @@ document.getElementById("navMenu").classList.toggle("active");
 let index = 0;
 const track = document.getElementById("reviewTrack");
 const cards = document.querySelectorAll(".review-card");
-
-function slideReviews(){
-
-index++;
-
-if(index > cards.length - 2){
-index = 0;
-}
 
 let isMobile = window.innerWidth <= 768;
 
@@ -359,15 +348,13 @@ function slideReviews(){
   track.style.transform = "translateX(-" + (index * movePercent) + "%)";
 }
 
+// run slider always (mobile + desktop)
+setInterval(slideReviews, 4000);
+
+// update on resize
 window.addEventListener("resize", () => {
   isMobile = window.innerWidth <= 768;
 });
-
-}
-
-if (window.innerWidth > 768) {
-  setInterval(slideReviews, 4000);
-}
 
 </script>
 <script src="authUI.js"></script>

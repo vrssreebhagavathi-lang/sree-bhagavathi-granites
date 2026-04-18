@@ -779,6 +779,10 @@ margin-bottom:10px;
 font-size:18px;
 
 }
+.about-hero-content h1,
+.about-hero-content p{
+  color: white;
+}
 
 /* ===== STORY SECTION ===== */
 

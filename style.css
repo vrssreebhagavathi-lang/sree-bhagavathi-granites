@@ -1911,11 +1911,7 @@ font-size:16px;
 /* Target the container holding cards */
 .why-container,
 .testimonial-container,
-.review-container{
-display:flex !important;
-flex-direction:column;
-align-items:center;
-}
+
 
 /* Target individual cards */
 .why-card,
@@ -1976,10 +1972,7 @@ width:100%;
 padding:0 15px;
 }
 
-.review-track{
-display:block !important;
-width:100%;
-}
+
 
 .review-card{
 width:100%;
@@ -2020,17 +2013,6 @@ padding:60px 20px !important;  /* ✅ FIX SIDE SPACING */
 
 }
 
-@media(max-width:768px){
-
-.review-track{
-transform: none !important;  /* 🔥 STOP SLIDER SHIFT */
-}
-
-}
-
-.review-track{
-transition: transform 0.5s ease-in-out;
-}
 
 .review-container{
 overflow:hidden;

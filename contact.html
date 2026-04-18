@@ -30,7 +30,7 @@
 </div>
 </div>
   <!-- 🔥 HAMBURGER -->
-  <div class="hamburger">
+  <div class="hamburger" onclick="toggleMenu()">
     <span></span>
     <span></span>
     <span></span>
@@ -153,6 +153,13 @@ window.open(url, "_blank");
 
 }
 </script>
-<script src="menu.js"></script>
+
+
+<script>
+function toggleMenu(){
+  document.querySelector(".nav-menu").classList.toggle("active");
+}
+</script>
+
 </body>
 </html>

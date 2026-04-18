@@ -342,7 +342,26 @@ if(index > cards.length - 2){
 index = 0;
 }
 
-track.style.transform = "translateX(-" + (index * 50) + "%)";
+let isMobile = window.innerWidth <= 768;
+
+function slideReviews(){
+
+  const cardsToShow = isMobile ? 1 : 2;
+
+  index++;
+
+  if(index > cards.length - cardsToShow){
+    index = 0;
+  }
+
+  const movePercent = isMobile ? 100 : 50;
+
+  track.style.transform = "translateX(-" + (index * movePercent) + "%)";
+}
+
+window.addEventListener("resize", () => {
+  isMobile = window.innerWidth <= 768;
+});
 
 }
 
